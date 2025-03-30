@@ -1,0 +1,109 @@
+ytml:
+  amp
+  lang: en
+  head:
+    title: Welcome to the djungle
+    meta:
+        charset: utf-8
+    meta:
+        name: viewport
+        content: width=device-width, initial-scale=1
+
+    link:
+        rel: stylesheet
+        type: text/css
+        href: /css/style.css
+  body:
+    class: body
+    id: main
+    ---
+    div.navigation:
+        ul:
+            li:
+                a:
+                    href: /home 
+            li:
+                a:
+                    href: /about
+            li:
+                a:
+                    href: /contact
+                    text: Contact
+    div.breadcrumbs:
+        a:
+            href: /home
+            text: Home
+        span: >
+            &gt;
+        a:
+            href: /about
+            text: About
+        span: >
+            &gt;
+        a:
+            href: /contact
+            text: Contact
+        
+    h1: Welcome to the djungle
+    p: |
+        This is a paragraph of text.
+        It can span multiple lines.
+    ul: {{ someItems }}
+    article:
+        class: article
+        ---
+        h2: Article title
+        p: |
+            This is a paragraph of text.
+            It can span multiple lines.
+        div:
+            id: footer
+            ---
+            p: | 
+                This is a paragraph of text.
+                It can span multiple lines.
+        div.footer#someId:
+            p#someOtherId: |
+                This is a paragraph of text.
+                It can span multiple lines.
+    SomeModule:
+
+    div:
+        id: pageFooter
+        ---
+        p: |
+            This is a paragraph of text.
+            It can span multiple lines.
+        
+
+    script: |
+        console.log('Hello, world!');
+
+# Render the HTML
+html = render_html(html)
+print(html)
+```
+
+Output:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to the djungle</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <h1>Welcome to the djungle</h1>
+    <p>
+        This is a paragraph of text.
+        It can span multiple lines.
+    </p>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+</body>
+</html>
+```
